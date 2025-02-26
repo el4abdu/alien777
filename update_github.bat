@@ -1,10 +1,6 @@
 @echo off
 echo Updating GitHub Repository...
 
-:: Set git credentials (only needed first time)
-git config --global user.name "el4abdu"
-git config --global user.email "mmmmorad123@gmail.com"
-
 :: Add all changes
 git add .
 
@@ -15,8 +11,8 @@ set datetime=%datetime:~0,8%-%datetime:~8,6%
 :: Commit changes with timestamp
 git commit -m "Auto update %datetime%"
 
-:: Push to GitHub
-git push origin master
+:: Push to GitHub (using main branch)
+git push -u origin main
 
 echo.
 echo Update Complete!
