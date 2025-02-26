@@ -1,8 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: Set your GitHub repository details
-set REPO_URL=https://github.com/el4abdu/al-en777.git
+:: Updated repository details
+set REPO_URL=https://github.com/el4abdu/alien777.git
 set USERNAME=el4abdu
 set EMAIL=mmmmorad123@gmail.com
 
