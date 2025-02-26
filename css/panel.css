@@ -16,22 +16,33 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #2c3e50, #3498db);
+    background: var(--darker-bg);
 }
 
 .login-box {
-    background: white;
+    background: rgba(20, 20, 20, 0.9);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
     width: 100%;
     max-width: 400px;
     text-align: center;
+    border: 1px solid var(--neon-blue);
 }
 
 .login-logo {
     width: 128px;
     height: 128px;
+    margin-bottom: 1rem;
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+}
+
+.cyber-text {
+    font-size: 2.5rem;
+    text-align: center;
     margin-bottom: 1rem;
 }
 
@@ -65,9 +76,10 @@ body {
 
 .sidebar {
     width: 250px;
-    background: #2c3e50;
+    background: var(--darker-bg);
     color: white;
     padding: 1rem;
+    border-right: 1px solid var(--neon-blue);
 }
 
 .sidebar-header {
@@ -118,10 +130,11 @@ nav a:hover, nav a.active {
 }
 
 .content {
-    background: white;
+    background: rgba(20, 20, 20, 0.9);
     border-radius: 10px;
     padding: 2rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--neon-blue);
 }
 
 .form-group {
@@ -137,9 +150,16 @@ nav a:hover, nav a.active {
 input, select {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--neon-blue);
     border-radius: 5px;
     font-size: 1rem;
+    background: rgba(30, 30, 30, 0.9);
+    color: #fff;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
 .btn {
