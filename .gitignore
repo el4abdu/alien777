@@ -1,2 +1,10 @@
 # Ignore the upload batch file
-upload.bat 
+upload.bat
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/ 
