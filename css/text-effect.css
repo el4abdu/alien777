@@ -1,0 +1,20 @@
+.scramble-text {
+  font-family: 'Rubik Mono One', monospace;
+  position: relative;
+  cursor: pointer;
+}
+
+.glitch {
+  color: var(--neon-blue);
+  text-shadow: 
+    0 0 2px var(--neon-blue),
+    0 0 4px var(--neon-blue),
+    0 0 6px var(--neon-blue);
+  animation: glitch 0.1s linear infinite;
+}
+
+@keyframes glitch {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+} 
