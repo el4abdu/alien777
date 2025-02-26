@@ -55,19 +55,14 @@ class TextScramble {
   }
 }
 
-// Apply effect to elements
+// Initialize text effect
 document.addEventListener('DOMContentLoaded', () => {
-  const elements = document.querySelectorAll('.scramble-text');
+  const elements = document.querySelectorAll('.text-effect');
   elements.forEach(el => {
     const fx = new TextScramble(el);
-    const originalText = el.textContent;
-    
-    // Initial animation
-    fx.setText(originalText);
-    
-    // Hover effect
+    const text = el.textContent;
     el.addEventListener('mouseenter', () => {
-      fx.setText(originalText);
+      fx.setText(text);
     });
   });
 }); 

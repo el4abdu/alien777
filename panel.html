@@ -6,8 +6,6 @@
     <title>Admin Panel - App Updates Center</title>
     <link rel="stylesheet" href="css/panel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/text-effect.css">
 </head>
 <body>
     <!-- Login Form -->
@@ -39,82 +37,61 @@
     <div id="adminPanel" class="admin-panel" style="display: none;">
         <div class="sidebar">
             <div class="sidebar-header">
-                <div class="logo-text">
-                    <span class="alien-text scramble-text">al!en</span>
-                    <span class="number-text scramble-text">777</span>
+                <div class="cyber-text">
+                    <span class="alien-text">al!en</span>
+                    <span class="number-text">777</span>
                 </div>
+                <p class="version">v1.0.0</p>
             </div>
-            <nav class="sidebar-nav">
-                <a href="#dashboard" class="active">
-                    <i class="fas fa-home"></i>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#apps">
-                    <i class="fas fa-cube"></i>
-                    <span>Apps</span>
-                </a>
-                <a href="#updates">
-                    <i class="fas fa-sync"></i>
-                    <span>Updates</span>
-                </a>
-                <a href="#settings">
-                    <i class="fas fa-cog"></i>
-                    <span>Settings</span>
-                </a>
-                <a href="#" id="logoutBtn">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
+            <nav>
+                <a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#" id="newAppBtn"><i class="fas fa-plus"></i> New App</a>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
         </div>
 
         <div class="main-content">
             <div class="header">
-                <div class="header-content">
-                    <h1 class="scramble-text">Admin Dashboard</h1>
-                    <div class="user-info">
-                        <span class="user-name">Welcome, Admin</span>
-                        <div class="user-avatar">
-                            <i class="fas fa-user-circle"></i>
+                <h1>Admin Dashboard</h1>
+                <span class="user-info">
+                    <i class="fas fa-user"></i> Welcome, Admin
+                </span>
+            </div>
+
+            <div class="content">
+                <div class="add-update">
+                    <h2><i class="fas fa-upload"></i> Add New Update</h2>
+                    <form id="updateForm">
+                        <div class="form-group">
+                            <label>Select App</label>
+                            <select id="appSelect" required>
+                                <option value="">Select App</option>
+                            </select>
+                            <button type="button" class="btn small" id="editAppBtn">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button type="button" class="btn small danger" id="deleteAppBtn">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label>Version</label>
+                            <input type="text" id="version" placeholder="e.g. 1.0.0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Update Files</label>
+                            <input type="file" id="updateFiles" multiple required>
+                        </div>
+                        <button type="submit" class="btn success">
+                            <i class="fas fa-cloud-upload-alt"></i> Publish Update
+                        </button>
+                    </form>
                 </div>
-            </div>
 
-            <div class="dashboard-grid">
-                <div class="dashboard-card">
-                    <div class="card-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <div class="card-info">
-                        <h3>Total Apps</h3>
-                        <p class="card-value">0</p>
-                    </div>
-                </div>
-                <div class="dashboard-card">
-                    <div class="card-icon">
-                        <i class="fas fa-download"></i>
-                    </div>
-                    <div class="card-info">
-                        <h3>Total Updates</h3>
-                        <p class="card-value">0</p>
-                    </div>
-                </div>
-                <!-- Add more dashboard cards -->
-            </div>
-
-            <div class="content-section">
-                <div class="section-header">
-                    <h2 class="scramble-text">Recent Updates</h2>
-                    <button class="btn primary" id="newUpdateBtn">
-                        <i class="fas fa-plus"></i> New Update
-                    </button>
-                </div>
-                <div class="updates-list">
-                    <!-- Updates will be loaded here -->
-                    <div class="no-data">
-                        <i class="fas fa-cube"></i>
-                        <p>No updates available</p>
+                <div class="update-history">
+                    <h2><i class="fas fa-history"></i> Update History</h2>
+                    <div id="updateList">
+                        <!-- Update history will be loaded here -->
                     </div>
                 </div>
             </div>

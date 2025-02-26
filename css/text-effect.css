@@ -1,20 +1,23 @@
-.scramble-text {
+.text-effect {
   font-family: 'Rubik Mono One', monospace;
-  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.text-effect:hover {
+  text-shadow: 0 0 10px var(--neon-blue),
+               0 0 20px var(--neon-blue),
+               0 0 30px var(--neon-blue);
 }
 
 .glitch {
-  color: var(--neon-blue);
-  text-shadow: 
-    0 0 2px var(--neon-blue),
-    0 0 4px var(--neon-blue),
-    0 0 6px var(--neon-blue);
-  animation: glitch 0.1s linear infinite;
+  color: var(--neon-pink);
+  animation: glitch 0.1s ease infinite;
 }
 
 @keyframes glitch {
-  0% { opacity: 1; }
+  0%, 100% { opacity: 1; }
   50% { opacity: 0.8; }
-  100% { opacity: 1; }
 } 
