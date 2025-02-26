@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Updates</title>
+    <title>App Updates Center</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="header">
+        <div class="container">
+            <h1><i class="fas fa-sync"></i> App Updates Center</h1>
+            <p class="version">Version 1.0.0</p>
+            <a href="panel.html" class="admin-link"><i class="fas fa-user-shield"></i> Admin Panel</a>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>App Updates</h1>
         <div class="app-list" id="appList">
             <!-- Apps will be loaded here dynamically -->
         </div>
@@ -16,13 +24,22 @@
 
     <div id="updateModal" class="modal">
         <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
             <h2>Update App</h2>
             <p id="selectedApp"></p>
-            <button id="selectFolder">Select Installation Folder</button>
-            <button id="startUpdate">Start Update</button>
-            <button id="closeModal">Cancel</button>
+            <div class="update-steps">
+                <button id="selectFolder" class="btn primary"><i class="fas fa-folder-open"></i> Select Installation Folder</button>
+                <button id="startUpdate" class="btn success"><i class="fas fa-download"></i> Start Update</button>
+                <button class="btn danger" id="cancelUpdate">Cancel</button>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>Made with ❤️ by Al!en777 | © 2025</p>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>
