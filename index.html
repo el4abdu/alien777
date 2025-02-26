@@ -3,12 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Updates</title>
+    <title>App Updates Manager</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>App Updates Manager</h1>
+            <a href="panel.html" class="admin-link">
+                <i class="fas fa-user-shield"></i> Admin Panel
+            </a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>App Updates</h1>
+        <div class="search-bar">
+            <input type="text" id="searchApps" placeholder="Search apps...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="no-apps" id="noApps">
+            <i class="fas fa-box-open"></i>
+            <p>No apps available for updates</p>
+        </div>
+
         <div class="app-list" id="appList">
             <!-- Apps will be loaded here dynamically -->
         </div>
@@ -16,11 +35,24 @@
 
     <div id="updateModal" class="modal">
         <div class="modal-content">
-            <h2>Update App</h2>
-            <p id="selectedApp"></p>
-            <button id="selectFolder">Select Installation Folder</button>
-            <button id="startUpdate">Start Update</button>
-            <button id="closeModal">Cancel</button>
+            <div class="modal-header">
+                <h2>Update App</h2>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="selectedApp"></p>
+                <div class="folder-select">
+                    <button id="selectFolder">
+                        <i class="fas fa-folder-open"></i> Select Installation Folder
+                    </button>
+                    <p id="selectedPath" class="selected-path"></p>
+                </div>
+                <button id="startUpdate" class="update-btn">
+                    <i class="fas fa-download"></i> Start Update
+                </button>
+            </div>
         </div>
     </div>
 

@@ -1,51 +1,84 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login');
+    const adminPanel = document.getElementById('adminPanel');
+    const logoutBtn = document.getElementById('logoutBtn');
     const updateForm = document.getElementById('updateForm');
-    
+
+    // Check if already logged in
+    if (sessionStorage.getItem('isLoggedIn')) {
+        showAdminPanel();
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'abdu' && password === '1234') {
+            sessionStorage.setItem('isLoggedIn', 'true');
+            showAdminPanel();
+        } else {
+            alert('Invalid credentials!');
+        }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem('isLoggedIn');
+        location.reload();
+    });
+
     updateForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const app = document.getElementById('appSelect').value;
+        const appName = document.getElementById('appName').value;
         const version = document.getElementById('version').value;
+        const description = document.getElementById('description').value;
         const files = document.getElementById('updateFiles').files;
 
-        // Here you would typically upload files to your storage solution
-        // and update your database with the new version information
-        
-        addUpdateToHistory(app, version, files);
+        addAppToList(appName, version, description);
         updateForm.reset();
     });
 
-    loadUpdateHistory();
+    loadApps();
 });
 
-function addUpdateToHistory(app, version, files) {
-    const updateList = document.getElementById('updateList');
-    const update = document.createElement('div');
-    update.className = 'update-item';
-    update.innerHTML = `
-        <h3>${app} - v${version}</h3>
-        <p>Files: ${files.length} files uploaded</p>
-        <p>Date: ${new Date().toLocaleString()}</p>
-    `;
-    updateList.prepend(update);
+function showAdminPanel() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
 }
 
-function loadUpdateHistory() {
+function addAppToList(appName, version, description) {
+    const appsList = document.getElementById('appsList');
+    const appItem = document.createElement('div');
+    appItem.className = 'app-item';
+    appItem.innerHTML = `
+        <div class="app-info">
+            <h3>${appName}</h3>
+            <p><strong>Version:</strong> ${version}</p>
+            <p>${description}</p>
+        </div>
+        <button class="delete-btn" onclick="deleteApp(this)">
+            <i class="fas fa-trash"></i> Delete
+        </button>
+    `;
+    appsList.appendChild(appItem);
+}
+
+function deleteApp(button) {
+    if (confirm('Are you sure you want to delete this app?')) {
+        button.closest('.app-item').remove();
+    }
+}
+
+function loadApps() {
     // This would typically fetch from an API
-    const updates = [
-        { app: 'App 1', version: '1.0.0', files: 3, date: '2024-03-20' },
-        { app: 'App 2', version: '2.0.0', files: 5, date: '2024-03-19' }
+    const apps = [
+        // Add any existing apps here
     ];
 
-    const updateList = document.getElementById('updateList');
-    updates.forEach(update => {
-        const updateElement = document.createElement('div');
-        updateElement.className = 'update-item';
-        updateElement.innerHTML = `
-            <h3>${update.app} - v${update.version}</h3>
-            <p>Files: ${update.files} files</p>
-            <p>Date: ${update.date}</p>
-        `;
-        updateList.appendChild(updateElement);
+    const appsList = document.getElementById('appsList');
+    apps.forEach(app => {
+        addAppToList(app.name, app.version, app.description);
     });
 } 
