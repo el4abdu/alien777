@@ -1,10 +1,13 @@
-# Ignore the upload batch file
-upload.bat
-
-# Ignore system files
+# System files
 .DS_Store
 Thumbs.db
 
-# Ignore IDE files
+# IDE files
 .vscode/
-.idea/ 
+.idea/
+
+# Logs
+*.log
+
+# Environment variables
+.env 
